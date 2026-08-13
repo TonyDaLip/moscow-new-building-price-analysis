@@ -6,7 +6,7 @@ Statistical analysis of price per square meter in Moscow new-build residential l
 
 ## Project overview
 
-The project analyzes **8,000 Moscow new-building listings** and investigates how residential prices are associated with several market characteristics.
+The project analyses **8,000 Moscow new-building listings** and investigates how residential prices are associated with several market characteristics.
 
 The analysis is structured around four main questions:
 
@@ -45,7 +45,7 @@ The project combines exploratory analysis with statistical inference and regress
 ### 1. Exploratory data analysis
 
 - inspected data quality and variable distributions;
-- analyzed price per square meter and potential outliers;
+- analysed price per square meter and potential outliers;
 - compared housing classes and districts;
 - examined the relationship between price and distance from the city center;
 - explored price dynamics over time.
@@ -98,6 +98,8 @@ Price per square meter generally decreases as distance from the center increases
 
 The relationship is nonlinear: differences are more pronounced closer to the center and become less steep at larger distances. A logarithmic distance specification therefore describes the observed pattern better than a simple linear relationship.
 
+![Price and distance relationship](images/price_distance.png)
+
 ### Housing class and location
 
 Prices increase systematically from economy and comfort housing toward business and premium segments.
@@ -106,27 +108,23 @@ However, the distributions overlap substantially. Housing class alone does not d
 
 ### Housing class after controlling for location
 
-Housing-class differences remain after accounting for both district and distance from the city center.
+Housing-class differences remain after accounting for both district and distance from the city center. 
 
-This suggests that housing class contains information about price that cannot be explained solely by where a property is located.
-
-At the same time, district effects remain relevant even after controlling for distance, indicating that location cannot be reduced to a single center-distance variable.
+This suggests that housing class contains information about price that cannot be explained solely by where a property is located. At the same time, district effects remain relevant even after controlling for distance, indicating that location cannot be reduced to a single center-distance variable.
 
 ### Price dynamics over time
 
 Monthly price dynamics are not identical across housing classes.
 
-The interaction between time and housing class allows the model to compare these class-specific trends rather than impose a common market trend on all segments.
+The interaction between time and housing class allows the model to compare these class-specific trends rather than impose a common market trend on all segments. Adjusted trend plots are therefore useful primarily for **comparing housing classes**, not as unconditional forecasts of the overall Moscow market.
 
-Adjusted trend plots are therefore useful primarily for **comparing housing classes**, not as unconditional forecasts of the overall Moscow market.
+![Model-adjusted price trends](images/price_trends.png)
 
 ### Model diagnostics
 
 Residual analysis shows that model errors are not distributed uniformly across the market.
 
-The model captures broad structural relationships well enough for explanatory analysis, but individual listings can still deviate substantially from the fitted values. This is especially important when interpreting results for specific market segments.
-
-For this reason, the model should be viewed primarily as an **explanatory model of price structure**, rather than as a precise property-valuation or long-term forecasting model.
+The model captures broad structural relationships well enough for explanatory analysis, but individual listings can still deviate substantially from the fitted values. This is especially important when interpreting results for specific market segments. For this reason, the model should be viewed primarily as an **explanatory model of price structure**, rather than as a precise property-valuation or long-term forecasting model.
 
 ## Main limitations
 
